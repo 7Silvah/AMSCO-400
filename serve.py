@@ -42,6 +42,12 @@ def find_node():
     return npm
 
 
+def sh(exe, args):
+    # En Windows la ruta del ejecutable suele tener espacios
+    # ("C:\Program Files\..."): hay que entrecomillarla o el shell la parte.
+    return '"%s" %s' % (exe, args) if IS_WIN else [exe] + args.split()
+
+
 def run(cmd, what):
     print(">> " + what + "...")
     # En Windows los .cmd necesitan shell para resolverse bien.
@@ -54,9 +60,9 @@ def ensure_built(npm):
     if os.path.isdir(DIST):
         return
     if not os.path.isdir(NODE_MODULES):
-        run(npm + " install" if IS_WIN else [npm, "install"],
+        run(sh(npm, "install"),
             "Instalando dependencias (npm install, solo la primera vez)")
-    run(npm + " run build" if IS_WIN else [npm, "run", "build"],
+    run(sh(npm, "run build"),
         "Compilando el proyecto (npm run build)")
 
 
