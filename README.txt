@@ -6,6 +6,13 @@ Proyecto en React que reconstruye el esterilizador STERIS AMSCO 400
 Medium (prevacio y SFPP) en 3D y en placa 2D, con los 5 ciclos
 completos paso a paso: que abre, que cierra, que lleva cada tubo.
 
+Repositorio: https://github.com/7Silvah/AMSCO-400
+
+Para clonarlo en tu computadora:
+  git clone https://github.com/7Silvah/AMSCO-400.git
+  cd AMSCO-400
+  git checkout development   # rama activa de trabajo
+
 ----------------------------------------------------------------
 1. QUE NECESITAS
 ----------------------------------------------------------------
